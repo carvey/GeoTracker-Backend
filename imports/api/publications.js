@@ -1,13 +1,16 @@
 import { Sessions } from './sessions/sessions';
 import { GPSData } from './gps/gps';
 
-function sessionSub(sessionID) {
+/*
+Master Session Publication
 
-    return GPSData.find({session: sessionID});
+This will publish the list of all sessions. Upon adding a new session, create another publication that will run the
+sessionSub function every time a user subscribes.
+ */
+Meteor.publish('SessionsList', sessionListSub);
 
-}
 
-Meteor.publish('SessionsList', function() {
+function sessionListSub() {
   var self = this;
 
   var subHandle = Sessions.find({}).observeChanges({
@@ -31,5 +34,13 @@ Meteor.publish('SessionsList', function() {
   self.onStop(function () {
     subHandle.stop();
   });
+}
 
-});
+/*
+This function will run every time a session is subscribed to. Only manage data for a given session.
+ */
+function sessionSub(sessionID) {
+
+    return GPSData.find({session: sessionID});
+
+}

@@ -4,6 +4,7 @@ import { Mongo } from 'meteor/mongo';
 Fields:
 - id
 - sessionID
+- userID
 - long
 - lat
 - altitude

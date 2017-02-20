@@ -12,5 +12,6 @@ time.sleep(1)
 client.insert('Sessions', {'title': name})
 time.sleep(1)
 
+# confirm that a publication was started based on the session name passed in
 client.subscribe(name)
 time.sleep(1)
