@@ -12,8 +12,8 @@ time.sleep(1)
 sessions = client.find('sessions')
 
 for session in sessions:
-    if session['title'] != "Test Session": # keep one around
-        client.remove('sessions', {'id': session['_id']})
+    if session['title'] != "Test Session": # keep one around if we need
+        client.remove('Sessions', {'_id': session['_id']})
 
 time.sleep(2)
 
