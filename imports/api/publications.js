@@ -8,20 +8,20 @@ function sessionSub(sessionID) {
 }
 
 Meteor.publish('SessionsList', function() {
-  var self = this;
+  let self = this;
 
-  var subHandle = Sessions.find({}).observeChanges({
+  let subHandle = Sessions.find({}).observeChanges({
 
     added: function (id, fields) {
-      self.added("sessions", id, fields);
+      self.added("Sessions", id, fields);
 
       Meteor.publish(fields.title, sessionSub)
     },
     changed: function(id, fields) {
-      self.changed("sessions", id, fields);
+      self.changed("Sessions", id, fields);
     },
     removed: function (id) {
-      self.removed("sessions", id);
+      self.removed("Sessions", id);
     }
 
   });
