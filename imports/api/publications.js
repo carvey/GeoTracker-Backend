@@ -1,5 +1,6 @@
 import { Sessions } from './sessions/sessions';
 import { GPSData } from './gps/gps';
+import { Users } from './users/users';
 
 function sessionSub(sessionID) {
 
@@ -32,4 +33,8 @@ Meteor.publish('SessionsList', function() {
     subHandle.stop();
   });
 
+});
+
+Meteor.publish('Users', function() {
+  return Users.find({});
 });
