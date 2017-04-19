@@ -42,7 +42,7 @@ This function will run every time a session is subscribed to. Only manage data f
  */
 function sessionSub(sessionID) {
 
-    return GPSData.find({session: sessionID});
+    return GPSData.find({sessionID: sessionID});
 
 }
 
