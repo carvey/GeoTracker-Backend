@@ -20,7 +20,7 @@ function sessionListSub() {
       self.added("Sessions", id, fields);
 
       Meteor.publish(fields.title, function() {
-          sessionSub(fields.title);
+          return sessionSub(fields.title);
       });
     },
     changed: function(id, fields) {
