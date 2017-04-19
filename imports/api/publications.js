@@ -19,7 +19,9 @@ function sessionListSub() {
     added: function (id, fields) {
       self.added("Sessions", id, fields);
 
-      Meteor.publish(fields.title, sessionSub)
+      Meteor.publish(fields.title, function() {
+          sessionSub(fields.title);
+      });
     },
     changed: function(id, fields) {
       self.changed("Sessions", id, fields);
