@@ -5,6 +5,7 @@ Fields:
 - id
 - sessionID
 - userID
+- provider
 - long
 - lat
 - altitude
